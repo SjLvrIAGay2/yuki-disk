@@ -1,0 +1,1 @@
+.yk-skeleton{background:linear-gradient(90deg,var(--yk-surface-hover) 25%,var(--yk-surface) 50%,var(--yk-surface-hover) 75%);background-size:200% 100%;border-radius:5px;animation:yk-skeleton 1.8s ease-in-out infinite}.yk-skeleton--circle{border-radius:50%;aspect-ratio:1}@keyframes yk-skeleton{to{background-position:-200% 0}}

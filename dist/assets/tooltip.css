@@ -1,0 +1,1 @@
+.yk-tooltip{max-width:min(280px,calc(100vw - 24px));z-index:120;padding:7px 10px;border-radius:6px;background:var(--yk-text);color:var(--yk-bg);box-shadow:var(--yk-shadow);font-size:11px;line-height:1.6;animation:yk-enter .15s ease}.yk-tooltip__arrow{fill:var(--yk-text)}

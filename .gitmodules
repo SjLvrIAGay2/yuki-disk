@@ -1,0 +1,24 @@
+[submodule "control"]
+	path = control
+	url = ../yuki-disk.git
+	branch = control
+[submodule "node"]
+	path = node
+	url = ../yuki-disk.git
+	branch = node
+[submodule "maintenance"]
+	path = maintenance
+	url = ../yuki-disk.git
+	branch = maintenance
+[submodule "cli"]
+	path = cli
+	url = ../yuki-disk.git
+	branch = cli
+[submodule "web"]
+	path = web
+	url = ../yuki-disk.git
+	branch = web
+[submodule "status"]
+	path = status
+	url = ../yuki-disk.git
+	branch = status

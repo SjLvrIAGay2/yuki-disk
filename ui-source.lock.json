@@ -1,0 +1,10 @@
+{
+  "format": 1,
+  "path": "../yukiUI",
+  "package": "@yuki-ui/react",
+  "version": "0.5.3",
+  "revision": "c4ca4730584b497d424c686877c2daa90257548d",
+  "distribution_branch": "ui-dist",
+  "distribution_revision": "5140a25270a43b5ffbcc290d3883a43469461b5b",
+  "dist_sha256": "4e029ac76ccd4298a5bbda388fe2361178db3a6b4b6e33eccecf1884cff61bc9"
+}

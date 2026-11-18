@@ -1,0 +1,21 @@
+[Unit]
+Description=Yuki Disk control plane
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=yukidisk
+Group=yukidisk
+ExecStart=/opt/yukidisk/control -config /etc/yukidisk/control.json
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=15
+KillSignal=SIGTERM
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

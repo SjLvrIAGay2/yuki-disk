@@ -1,0 +1,22 @@
+[Unit]
+Description=Yuki Disk storage node
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=yukidisk
+Group=yukidisk
+ExecStart=/opt/yukidisk/node -config /etc/yukidisk/node.json
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=15
+KillSignal=SIGTERM
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/lib/yukidisk
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,69 @@
+{
+  "development": false,
+  "database": "postgres://yukidisk:SET_DATABASE_PASSWORD@127.0.0.1:5432/yukidisk?sslmode=disable",
+  "control": {
+    "url": "https://api.disk.example.com:8443",
+    "listen": "0.0.0.0:8443",
+    "tls_cert": "/etc/yukidisk/tls/fullchain.pem",
+    "tls_key": "/etc/yukidisk/tls/privkey.pem"
+  },
+  "web_origin": "https://disk.example.com:8443",
+  "nodes": [
+    {
+      "id": "hot-1",
+      "url": "https://hot1.disk.example.com:8443",
+      "listen": "0.0.0.0:8443",
+      "tier": "hot",
+      "data": "/var/lib/yukidisk/node",
+      "tls_cert": "/etc/yukidisk/tls/fullchain.pem",
+      "tls_key": "/etc/yukidisk/tls/privkey.pem",
+      "storage_mode": "filesystem",
+      "capacity_bytes": 0,
+      "read_bandwidth_bps": 0,
+      "write_bandwidth_bps": 0,
+      "reserve_bytes": 0
+    },
+    {
+      "id": "hot-2",
+      "url": "https://hot2.disk.example.com:8443",
+      "listen": "0.0.0.0:8443",
+      "tier": "hot",
+      "data": "/var/lib/yukidisk/node",
+      "tls_cert": "/etc/yukidisk/tls/fullchain.pem",
+      "tls_key": "/etc/yukidisk/tls/privkey.pem",
+      "storage_mode": "filesystem",
+      "capacity_bytes": 0,
+      "read_bandwidth_bps": 0,
+      "write_bandwidth_bps": 0,
+      "reserve_bytes": 0
+    },
+    {
+      "id": "cold-1",
+      "url": "https://cold1.disk.example.com:8443",
+      "listen": "0.0.0.0:8443",
+      "tier": "cold",
+      "data": "/var/lib/yukidisk/node",
+      "tls_cert": "/etc/yukidisk/tls/fullchain.pem",
+      "tls_key": "/etc/yukidisk/tls/privkey.pem",
+      "storage_mode": "filesystem",
+      "capacity_bytes": 0,
+      "read_bandwidth_bps": 0,
+      "write_bandwidth_bps": 0,
+      "reserve_bytes": 0
+    },
+    {
+      "id": "cold-2",
+      "url": "https://cold2.disk.example.com:8443",
+      "listen": "0.0.0.0:8443",
+      "tier": "cold",
+      "data": "/var/lib/yukidisk/node",
+      "tls_cert": "/etc/yukidisk/tls/fullchain.pem",
+      "tls_key": "/etc/yukidisk/tls/privkey.pem",
+      "storage_mode": "filesystem",
+      "capacity_bytes": 0,
+      "read_bandwidth_bps": 0,
+      "write_bandwidth_bps": 0,
+      "reserve_bytes": 0
+    }
+  ]
+}

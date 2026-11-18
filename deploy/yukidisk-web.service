@@ -1,0 +1,22 @@
+[Unit]
+Description=Yuki Disk static HTTPS client
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=yukidisk
+Group=yukidisk
+WorkingDirectory=/opt/yukidisk/web
+ExecStart=/usr/bin/node /opt/yukidisk/web/server.mjs --config /etc/yukidisk/web-server.json
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=15
+KillSignal=SIGTERM
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

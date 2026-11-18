@@ -1,0 +1,16 @@
+node_modules/
+dist/
+*.local
+*.log
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+private/
+private-config/
+.DS_Store
+Thumbs.db
+/server.json
+/dist/

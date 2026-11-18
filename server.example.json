@@ -1,0 +1,85 @@
+{
+  "host": "127.0.0.1",
+  "port": 5176,
+  "development": true,
+  "publicOrigin": "http://127.0.0.1:5176",
+  "directory": "./dist",
+  "control": "http://127.0.0.1:18080",
+  "intervalMs": 10000,
+  "timeoutMs": 3000,
+  "services": [
+    {
+      "id": "control",
+      "name": "文件服务",
+      "url": "http://127.0.0.1:18080/readyz",
+      "kind": "control",
+      "monitorKey": "development-only-control-monitor-key-change-this",
+      "hostGroup": "host-0",
+      "capacityGroup": "none"
+    },
+    {
+      "id": "storage-1",
+      "name": "存储服务 1",
+      "url": "http://127.0.0.1:18101/readyz",
+      "kind": "storage",
+      "monitorKey": "development-only-node-monitor-key-change-this",
+      "hostGroup": "host-1",
+      "capacityGroup": "volume-1"
+    },
+    {
+      "id": "storage-2",
+      "name": "存储服务 2",
+      "url": "http://127.0.0.1:18102/readyz",
+      "kind": "storage",
+      "monitorKey": "development-only-node-monitor-key-change-this",
+      "hostGroup": "host-2",
+      "capacityGroup": "volume-2"
+    },
+    {
+      "id": "storage-3",
+      "name": "存储服务 3",
+      "url": "http://127.0.0.1:18103/readyz",
+      "kind": "storage",
+      "monitorKey": "development-only-node-monitor-key-change-this",
+      "hostGroup": "host-3",
+      "capacityGroup": "volume-3"
+    },
+    {
+      "id": "storage-4",
+      "name": "存储服务 4",
+      "url": "http://127.0.0.1:18104/readyz",
+      "kind": "storage",
+      "monitorKey": "development-only-node-monitor-key-change-this",
+      "hostGroup": "host-4",
+      "capacityGroup": "volume-4"
+    },
+    {
+      "id": "maintenance-1",
+      "name": "维护服务 1",
+      "url": "http://127.0.0.1:18201/readyz",
+      "kind": "maintenance",
+      "monitorKey": "development-only-maintenance-monitor-key-change-this",
+      "hostGroup": "host-5",
+      "capacityGroup": "none"
+    },
+    {
+      "id": "maintenance-2",
+      "name": "维护服务 2",
+      "url": "http://127.0.0.1:18202/readyz",
+      "kind": "maintenance",
+      "monitorKey": "development-only-maintenance-monitor-key-change-this",
+      "hostGroup": "host-6",
+      "capacityGroup": "none"
+    },
+    {
+      "id": "web",
+      "name": "网盘网页",
+      "url": "http://127.0.0.1:5175/readyz",
+      "kind": "web",
+      "monitorKey": "development-only-web-monitor-key-change-this",
+      "hostGroup": "host-7",
+      "capacityGroup": "none"
+    }
+  ],
+  "logKey": "development-only-status-log-key-change-this"
+}

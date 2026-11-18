@@ -1,0 +1,23 @@
+{
+  "id": "n1",
+  "listen": "127.0.0.1:18101",
+  "data": "/var/lib/yukidisk/container-node",
+  "control": "http://127.0.0.1:18080",
+  "key": "development-node-1-key-change-this-0000",
+  "capability_key": "development-capability-key-change-this-0000",
+  "maintenance_key": "development-maintenance-key-change-this-0000",
+  "development": true,
+  "origins": [
+    "http://127.0.0.1:5173"
+  ],
+  "sources": [
+    "http://127.0.0.1:18101",
+    "http://127.0.0.1:18102",
+    "http://127.0.0.1:18103",
+    "http://127.0.0.1:18104"
+  ],
+  "storage_mode": "container",
+  "capacity_bytes": 10737418240,
+  "container_file": "blocks.pack",
+  "monitor_key": "development-only-node-monitor-key-change-this"
+}

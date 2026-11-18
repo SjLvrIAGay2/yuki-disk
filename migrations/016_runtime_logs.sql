@@ -1,0 +1,11 @@
+CREATE TABLE log_policy(singleton boolean PRIMARY KEY DEFAULT true CHECK(singleton),version bigint NOT NULL DEFAULT 1,info_limit integer NOT NULL DEFAULT 1000,warning_days integer NOT NULL DEFAULT 30,upload_seconds integer NOT NULL DEFAULT 10,min_level text NOT NULL DEFAULT 'info');
+INSERT INTO log_policy(singleton) VALUES(true);
+CREATE TABLE runtime_logs(id bigserial PRIMARY KEY,module text NOT NULL,source text NOT NULL,stream text NOT NULL,sequence bigint NOT NULL,level text NOT NULL CHECK(level IN('info','warn','error')),code text NOT NULL,occurred_at timestamptz NOT NULL,received_at timestamptz NOT NULL DEFAULT now(),count integer NOT NULL DEFAULT 1);
+CREATE INDEX runtime_logs_recent ON runtime_logs(id DESC);
+CREATE INDEX runtime_logs_retention ON runtime_logs(level,received_at);
+CREATE TABLE log_streams(source text NOT NULL,stream text NOT NULL,last_sequence bigint NOT NULL DEFAULT 0,last_seen timestamptz NOT NULL DEFAULT now(),PRIMARY KEY(source,stream));
+CREATE TABLE log_rate_limits(source text PRIMARY KEY,window_start timestamptz NOT NULL DEFAULT now(),events integer NOT NULL DEFAULT 0);
+CREATE TABLE node_configuration(node_id text PRIMARY KEY REFERENCES nodes(id),version bigint NOT NULL DEFAULT 1,settings jsonb NOT NULL);
+INSERT INTO node_configuration(node_id,settings) SELECT id,jsonb_build_object('read_bandwidth_bps',read_bandwidth_bps,'write_bandwidth_bps',write_bandwidth_bps,'reserve_bytes',reserve_bytes,'resource_interval_seconds',3,'log_upload_seconds',10,'log_min_level','info') FROM nodes;
+CREATE TABLE node_configuration_instances(node_id text NOT NULL REFERENCES nodes(id),instance_id text NOT NULL,target_version bigint NOT NULL,applied_version bigint NOT NULL,state text NOT NULL CHECK(state IN('applied','failed')),observed_at timestamptz NOT NULL DEFAULT now(),PRIMARY KEY(node_id,instance_id));
+INSERT INTO schema_migrations(version) VALUES(16);

@@ -1,0 +1,66 @@
+{
+  "listen": "127.0.0.1:18080",
+  "database": "postgres://yukidisk:development-only@127.0.0.1:5432/yukidisk?sslmode=disable",
+  "development": true,
+  "password": "development-user-password-change-this-0000",
+  "session_key": "development-session-key-change-this-0000",
+  "capability_key": "development-capability-key-change-this-0000",
+  "maintenance_key": "development-maintenance-key-change-this-0000",
+  "nodes": [
+    {
+      "id": "n1",
+      "url": "http://127.0.0.1:18101",
+      "tier": "hot",
+      "key": "development-node-1-key-change-this-0000",
+      "read_bandwidth_bps": 0,
+      "write_bandwidth_bps": 0,
+      "reserve_bytes": 0
+    },
+    {
+      "id": "n2",
+      "url": "http://127.0.0.1:18102",
+      "tier": "hot",
+      "key": "development-node-2-key-change-this-0000",
+      "read_bandwidth_bps": 0,
+      "write_bandwidth_bps": 0,
+      "reserve_bytes": 0
+    },
+    {
+      "id": "n3",
+      "url": "http://127.0.0.1:18103",
+      "tier": "cold",
+      "key": "development-node-3-key-change-this-0000",
+      "read_bandwidth_bps": 0,
+      "write_bandwidth_bps": 0,
+      "reserve_bytes": 0
+    },
+    {
+      "id": "n4",
+      "url": "http://127.0.0.1:18104",
+      "tier": "cold",
+      "key": "development-node-4-key-change-this-0000",
+      "read_bandwidth_bps": 0,
+      "write_bandwidth_bps": 0,
+      "reserve_bytes": 0
+    }
+  ],
+  "origins": [
+    "http://127.0.0.1:5173"
+  ],
+  "replicas": 2,
+  "trash_seconds": 604800,
+  "gc_seconds": 86400,
+  "upload_seconds": 900,
+  "cold_seconds": 604800,
+  "mounts": [],
+  "monitor_key": "development-only-control-monitor-key-change-this",
+  "bootstrap_admin": {
+    "username": "admin",
+    "password": "development-only-admin-password-change-this"
+  },
+  "legacy_username": "user",
+  "log_keys": {
+    "web": "development-only-web-log-key-change-this",
+    "status": "development-only-status-log-key-change-this"
+  }
+}

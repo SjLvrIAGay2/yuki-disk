@@ -1,0 +1,13 @@
+{
+  "control": "http://127.0.0.1:18080",
+  "key": "development-maintenance-key-change-this-0000",
+  "nodes": [
+    "http://127.0.0.1:18101",
+    "http://127.0.0.1:18102",
+    "http://127.0.0.1:18103",
+    "http://127.0.0.1:18104"
+  ],
+  "development": true,
+  "listen": "127.0.0.1:18201",
+  "monitor_key": "development-only-maintenance-monitor-key-change-this"
+}

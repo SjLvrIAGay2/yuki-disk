@@ -1,0 +1,10 @@
+/* Domain layout only; yukiUI owns controls and menus. */
+.file-sort{display:flex;gap:12px;align-items:end;margin:12px 0}.file-sort>div{min-width:130px}
+.mobile-file-actions{display:none}.desktop-file-actions{display:flex;gap:2px;flex-wrap:wrap}.workspace .file-table .actions .yk-button{display:inline-flex}.workspace .file-table.density-compact td{padding-top:8px;padding-bottom:8px}
+@media(max-width:720px){
+ .workspace .file-table table{min-width:0!important;table-layout:fixed;width:100%}.workspace .file-table th:first-child{width:36px}.workspace .file-table th:nth-child(2){width:auto}.workspace .file-table th:nth-child(3){width:76px}.workspace .file-table th:last-child{width:52px}
+ .workspace .file-table th:nth-child(4),.workspace .file-table td:nth-child(4){display:none}.workspace .file-table th,.workspace .file-table td{padding:12px 4px}.workspace .file-table td:nth-child(2){width:auto}.workspace .file-table td:nth-child(3){font-size:11px;white-space:nowrap}
+ .workspace .file-table tbody tr:not(.file-versions-row){height:88px}.workspace .file-table.density-compact tbody tr:not(.file-versions-row){height:72px}
+ .workspace .file-table .file-cell{gap:8px}.workspace .file-table .file-cell>div:last-child{flex:1;overflow:hidden}.workspace .file-table .entry-name{display:block;white-space:nowrap!important;overflow:hidden;text-overflow:ellipsis;max-width:100%;font-size:12px;min-height:24px}.workspace .file-table .file-cell small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .workspace .file-table .file-icon{width:28px;height:34px}.workspace .file-table .desktop-file-actions{display:none}.workspace .file-table .mobile-file-actions{display:block}.workspace .file-table .actions .yk-button{padding:6px 2px;font-size:11px}.file-sort>div{flex:1;min-width:0}
+}

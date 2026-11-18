@@ -1,0 +1,11 @@
+export type Config = { control: string; nodes: string[]; development: boolean; connection?: 'auto' | 'http'; p2p_brokers?: string[] };
+export type Target = { node: string; url: string; token: string; p2p?: boolean };
+export type Block = { hash: string; size: number; skip: boolean; targets: Target[] };
+export type Manifest = { path: string; size: number; chunks: { hash: string; size: number }[] };
+type FileSource = { url: string; token: string; revision: string; node?: string; p2p?: boolean; ranges?: boolean };
+export type DownloadPlan = { source?: FileSource; version_id: string; path: string; size: number; blocks: Block[] };
+export type Entry = { readonly?: boolean; path: string; name: string; is_dir: boolean; size: number; version_id: string; versions: number; created_at: string; modified_at: string | null; expires_at: string | null; trashed_at: string | null; trash_id: string | null };
+export type Version = { deleted: boolean; trash_id: string | null; trashed_at: string | null; id: string; path: string; size: number; created_at: string; expires_at: string | null };
+export type Page<T> = { items: T[]; next_cursor: string };
+export const CHUNK_SIZE = 4194304;
+export const MAX_CHUNKS = 10000;

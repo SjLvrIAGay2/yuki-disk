@@ -1,0 +1,14 @@
+import {RuntimeLogsPanel} from './RuntimeLogsPanel';
+import {useEffect,useState} from 'react';
+import {Alert,Badge,Button,Table,TableBody,TableCell,TableHead,TableHeader,TableRow} from '../../ui';
+import {api} from '../../api/client';
+import {useAction,type AdminProps} from './common';
+type Detail={checkedAt:string|null;stale:boolean;services:{id:string;name:string;kind:string;state:string;telemetry?:{process?:{cpu_percent?:number;rss_bytes?:number};storage?:{mode?:string;total_bytes:number;available_bytes:number};maintenance?:{state:string;completed_tasks?:number;failed_tasks?:number}}}[]};
+
+const number=(v:number|undefined,scale=1)=>v===undefined?'暂不可用':(v/scale).toFixed(1);
+export function StatusPanel({config,token}:AdminProps){const[details,setDetails]=useState<Detail>(),[tasks,setTasks]=useState<{queued_tasks:number;running_tasks:number;failed_tasks:number}>();const{busy,error,run}=useAction();
+ async function load(){try{const[d,s]=await Promise.all([api<Detail>(config,token,'/admin-status/details'),api<{control:NonNullable<typeof tasks>}>(config,token,'/v1/status')]);setDetails(d);setTasks(s.control)}catch(e){setDetails(undefined);setTasks(undefined);throw e}}
+ useEffect(()=>{void run(load);const timer=setInterval(()=>void run(load),10000);return()=>clearInterval(timer)},[config,token]);
+ return <section><h2>服务详情与运行日志</h2>{error&&<Alert variant="danger" title={error}/>}<Button disabled={busy} onClick={()=>void run(load)}>刷新运行状态</Button>{tasks&&<p>维护任务：等待 {tasks.queued_tasks}，执行中 {tasks.running_tasks}，失败 {tasks.failed_tasks}。</p>}{details&&<><p>最近更新：{details.checkedAt?new Date(details.checkedAt).toLocaleString():'暂不可用'}{details.stale?'（数据过期）':''}</p><Table><TableHeader><TableRow>{['服务','状态','CPU（单核 %）','进程内存（MiB）','存储方式','可用 / 总容量（GiB）','维护状态'].map(v=><TableHead key={v}>{v}</TableHead>)}</TableRow></TableHeader><TableBody>{details.services.map(v=>{const t=!details.stale&&v.state==='ready'?v.telemetry:undefined;return <TableRow key={v.id}><TableCell>{v.name}</TableCell><TableCell><Badge variant={details.stale?'warning':v.state==='ready'?'success':'danger'}>{details.stale?'数据过期':v.state==='ready'?'正常':'不可用'}</Badge></TableCell><TableCell>{number(t?.process?.cpu_percent)}</TableCell><TableCell>{number(t?.process?.rss_bytes,1048576)}</TableCell><TableCell>{t?.storage?.mode==='container'?'预分配容器':t?.storage?.mode==='filesystem'?'文件系统':'—'}</TableCell><TableCell>{t?.storage?`${number(t.storage.available_bytes,1073741824)} / ${number(t.storage.total_bytes,1073741824)}`:'—'}</TableCell><TableCell>{t?.maintenance?`${t.maintenance.state==='idle'?'等待任务':t.maintenance.state==='executing'?'执行中':'连接中断'}，完成 ${t.maintenance.completed_tasks??'未知'}，失败 ${t.maintenance.failed_tasks??'未知'}`:'—'}</TableCell></TableRow>})}</TableBody></Table></>}
+ <RuntimeLogsPanel config={config} token={token}/></section>;
+}

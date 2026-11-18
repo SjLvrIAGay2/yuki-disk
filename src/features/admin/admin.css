@@ -1,0 +1,13 @@
+/* System-management layout; controls remain owned by yukiUI. */
+.management-page{max-width:1120px;margin:0 auto;padding:32px 28px 64px}
+.management-page>header{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:28px}
+.management-page>nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.management-page>section{display:grid;gap:20px}
+.management-page section>section{display:grid;gap:16px}
+.management-page section>.yk-badge{justify-self:start}
+.management-page h2{font-size:22px}
+.management-page form{display:grid;gap:14px;max-width:560px}
+.management-page p{line-height:1.7}
+.management-page td .yk-button{margin:3px}
+.configuration-field{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:8px}
+@media(max-width:600px){.management-page{padding:24px 16px}.management-page>header{align-items:flex-start}.management-page h1{font-size:28px}}

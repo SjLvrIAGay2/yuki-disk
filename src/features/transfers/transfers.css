@@ -1,0 +1,24 @@
+/* Transfer workspace layout; controls remain owned by yukiUI. */
+.workspace.workspace-transfers{padding:0}
+.workspace-transfers>header{padding:0 32px}
+.transfers{display:grid;grid-template-columns:156px minmax(0,1fr);min-height:calc(100dvh - 91px)}
+.transfer-sidebar{padding:28px 14px;border-right:1px solid #e2e6df;background:#fafbf8}
+.transfer-sidebar nav{display:grid;gap:8px;position:sticky;top:28px}
+.transfer-sidebar .yk-button{justify-content:flex-start;width:100%}
+.transfer-sidebar .active{background:#e7efe3;color:#244d3f;font-weight:650}
+.transfer-main{min-width:0;padding:28px 32px}
+.transfer-toolbar{display:flex;align-items:center;gap:16px;margin:24px 0;color:#718273;font-size:12px}
+.transfer-table{table-layout:fixed;width:100%}
+.transfer-table th:first-child{width:58%}
+.transfer-table th:nth-child(2){width:14%}
+.transfer-table th:last-child{text-align:right}
+.transfer-table td{padding-top:20px;padding-bottom:20px}
+.transfer-table td:last-child{text-align:right}
+.transfer-file{display:flex;align-items:center;gap:14px;min-width:0}
+.transfer-details{flex:1;min-width:0}
+.transfer-details strong{display:block;font-size:13px;overflow-wrap:anywhere;font-weight:500}
+.transfer-details small{display:block;font-size:12px;color:#718273;margin:8px 0;overflow-wrap:anywhere}
+.transfer-details .error{color:var(--yk-danger)}
+.transfer-table time{font-size:12px;color:#718273}
+@media(max-width:1100px){.transfers{grid-template-columns:124px minmax(0,1fr)}.transfer-main{padding:24px 20px}}
+@media(max-width:720px){.workspace-transfers>header{padding:0 20px}.transfers{display:block;min-height:calc(100dvh - 64px)}.transfer-sidebar{padding:12px 20px;border-right:0;border-bottom:1px solid #e2e6df}.transfer-sidebar nav{display:flex;position:static;gap:10px}.transfer-sidebar .yk-button{width:auto;min-width:86px;justify-content:center}.transfer-main{padding:20px 12px}.transfer-table th:first-child{width:48%}.transfer-table th:nth-child(2){width:20%}.transfer-file{gap:8px}.transfer-file .file-icon{width:26px;height:32px}.transfer-table td,.transfer-table th{padding-left:6px;padding-right:6px}.transfer-table time{font-size:11px}.transfer-toolbar{margin:20px 0}}

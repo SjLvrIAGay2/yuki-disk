@@ -1,0 +1,17 @@
+node_modules/
+dist/
+playwright-report/
+test-results/
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.log
+private/
+private-config/
+.DS_Store
+Thumbs.db
+/server.json
+/dist/

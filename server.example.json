@@ -1,0 +1,9 @@
+{
+  "host": "127.0.0.1",
+  "port": 5173,
+  "development": true,
+  "directory": "dist",
+  "statusService": "http://127.0.0.1:5176",
+  "monitorKey": "development-only-web-monitor-key-change-this",
+  "logKey": "development-only-web-log-key-change-this"
+}
